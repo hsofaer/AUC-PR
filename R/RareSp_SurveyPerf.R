@@ -93,42 +93,6 @@ SurveyRare.west %>% as.data.frame() %>%
 
 
 ###
-#####   Simple plot for ms revision: just AUC-PR, AUC-ROC, precision    #####
-###
-
-# corPerf = SurveyRare.west %>%
-#   rename(AUCPR = aucPR) %>%
-#   gather(metric, value, AUC, AUCPR, precision, MillerAbsDiff1) %>%
-#   group_by(metric) %>%
-#   summarise(cor = round(cor(prop.found, value), 2)) 
-# corPerf
-# 
-# 
-# p.surveyPerf = SurveyRare.west %>%
-#   rename(AUCPR = aucPR) %>%
-#   gather(metric, value, AUC, AUCPR, precision, MillerAbsDiff1) %>%
-#   # order for plot:
-#   ungroup() %>%
-#   mutate(metric = factor(metric,
-#                          levels = c("AUCPR", "AUC", "precision", "MillerAbsDiff1"),
-#                          labels = c("AUC-PR", "AUC-ROC",  "Precision", "Lack of calibration"),
-#                          ordered = TRUE)) %>%
-#   ggplot(., aes(value, prop.found)) +
-#   geom_point(size = 3) +
-#   facet_wrap( ~ metric, scale = "free_x", ncol = 1, strip.position = "bottom") +
-#   ylab("Proportion of sampled\nlocations with presence") +
-#   theme(legend.title = element_blank(),
-#         axis.text = element_text(color = "black", size = 10),
-#         axis.title.y = element_text(size = 16),
-#         legend.text = element_text(size = 12),
-#         strip.text = element_text(size = 12),
-#         strip.placement = "outside",
-#         axis.title.x = element_blank(),
-#         strip.background = element_blank()) 
-# ggsave("surveyPerf_26July2018.png", height = 3, width = 9)
-# ggsave("./AUCPR_figures/surveyPerf_26July2018.pdf", height = 3, width = 9)
-
-###
 #####    Sample based on top_n      #####
 ###
 
@@ -157,36 +121,6 @@ glimpse(TopN.west)
 TopN.west %>% as.data.frame() %>%
   filter(!complete.cases(.)) %>%
   nrow()
-
-# TopN.west %>%
-#   group_by(spID, simnum, sp_sim, algorithm) %>%
-#   rename(AUCPR = aucPR) %>%
-#   gather(metric, value, AUC, AUCPR, precision, MillerAbsDiff1) %>%
-#   group_by(metric) %>%
-#   summarise(cor = round(cor(prop.found, value), 2)) 
-# 
-# 
-# TopN.west %>%
-#   rename(AUCPR = aucPR) %>%
-#   gather(metric, value, AUC, AUCPR, precision, MillerAbsDiff1) %>%
-#   # order for plot:
-#   ungroup() %>%
-#   mutate(metric = factor(metric,
-#                          levels = c("AUCPR", "AUC", "precision", "MillerAbsDiff1"),
-#                          labels = c("AUC-PR", "AUC-ROC",  "Precision", "Lack of calibration"),
-#                          ordered = TRUE)) %>%
-#   ggplot(., aes(value, prop.found)) +
-#   geom_point(size = 3) +
-#   facet_wrap( ~ metric, scale = "free_x", ncol = 4, strip.position = "bottom") +
-#   ylab("Proportion of sampled\nlocations with presence") +
-#   theme(legend.title = element_blank(),
-#         axis.text = element_text(color = "black", size = 10),
-#         axis.title.y = element_text(size = 16),
-#         legend.text = element_text(size = 12),
-#         strip.text = element_text(size = 12),
-#         strip.placement = "outside",
-#         axis.title.x = element_blank(),
-#         strip.background = element_blank()) 
 
 
 ###
