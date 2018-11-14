@@ -9,10 +9,13 @@
 # Furthermore, the software is released on condition that neither the USGS nor the U.S. Government 
 # shall be held liable for any damages resulting from its authorized or unauthorized use.
 
+##  Code used to generate csv files of red brome and exotic graminoid occurrences can be found in:
+# https://github.com/pederengelstad/USGS_FORT/tree/master/SpeciesOccurrenceData
+
 ##  Helen Sofaer
 ##  27 July 2018
 ##  8 Aug 2018: added survey perf
-##  13 Nov 2018: added USGS disclaimer
+##  13 Nov 2018: added USGS disclaimer 
 
 library(tidyverse)
 library(raster)
