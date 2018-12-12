@@ -22,3 +22,5 @@ Overview of code files:
 * MESS_ PlotandSensitivity: sensitivity analysis excluding areas of extrapolation in prediction
 * WorkflowFigure: for Fig 2
 * PresBackground_AUCPR: sensitivity analysis with presence background data
+
+[![DOI](https://zenodo.org/badge/157421269.svg)](https://zenodo.org/badge/latestdoi/157421269)
